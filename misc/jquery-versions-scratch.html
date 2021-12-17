@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <title>jQuery Versions Scratch Pad</title>
+  <link rel="icon" type="image/x-icon" href="/docs/images/favicon-raptor-claw.png">
+
+  <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous">
+  </script>
+
+  <!-- Note: jQuery slim version will not work as it purposefully excludes animation effects module -->
+  <!--
+      <script
+          src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+          integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+          crossorigin="anonymous">
+      </script>
+  -->
+
+  <!--
+      <script
+          src="https://code.jquery.com/jquery-2.2.4.min.js"
+          integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+          crossorigin="anonymous">
+      </script>
+  -->
+
+  <!--
+      <script
+          src="https://code.jquery.com/jquery-1.7.min.js"
+          integrity="sha256-/05Jde9AMAT4/o5ZAI23rUf1SxDYTHLrkOco0eyRV84="
+          crossorigin="anonymous">
+      </script>
+  -->
+
+  <!-- Note: Raptorize 2.0 will NOT work with jQuery 1.4 (intended behavior) -->
+  <!--
+    <script
+        src="https://code.jquery.com/jquery-1.4.min.js"
+        integrity="sha256-iauvHiRxsAUlsGlASOF5wPOaJnTjvLNEYOprxIAYgr4="
+        crossorigin="anonymous">
+    </script>
+  -->
+
+  <!--
+    <script
+        src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"
+        integrity="sha256-Ap4KLoCf1rXb52q+i3p0k2vjBsmownyBTE1EqlRiMwA="
+        crossorigin="anonymous">
+    </script>
+  -->
+
+  <script src="/js/jquery.raptorize.2.0.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#open-cage-button').raptorize();
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Raptorize 2.0 - jQuery Versions Scratch Pad</h1>
+  <button id="open-cage-button">Unleash Raptor</button>
+</body>
+
+</html>
