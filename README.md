@@ -2,6 +2,8 @@
 
 This is an homage to the classic Raptorize plugin: [https://zurb.com/playground/jquery-raptorize](https://zurb.com/playground/jquery-raptorize). It was built back in 2010 with jQuery 1.4 and is overdue for an update to support later jQuery versions. For a complete list of improvements, see changelog below.
 
+Want to see the plugin in action? [Check it out here](https://randomvlad.github.io/raptorize-jquery).
+
 ## Installation
 
 Steps:
@@ -24,24 +26,57 @@ Code Sample:
 </script>
 ```
 
+## Options
+
+Plugin's `raptorize()` method supports an `options` parameter to customize things.
+
+| Parameter | Default Value | Notes |
+|---|---|---|
+| `enterOn` | click | Possible values: `click`, `timer`, `konami-code` |
+| `delayTime` | 5000 | Delay duration in milliseconds before raptor is triggered. Only applicable for `timer` mode. |
+| `assets.root` | / | Path to assets root folder with raptor files |
+| `assets.raptorImage` | images/raptor.png | |
+| `assets.raptorSoundMp3` | sounds/raptor-sound.mp3 |  |
+| `assets.raptorSoundOgg` | sounds/raptor-sound.ogg |  |
+
+Examples:
+
+```javascript
+// attach raptor to body html element and trigger after a 3 second delay timer
+$('body').raptorize({ 
+  'enterOn': 'timer',
+  'delayTime': 3000
+});
+```
+
+```javascript
+// override assets if your project stores the files in a non-default location 
+$('body').raptorize({
+  'enterOn': 'konami-code',  
+  'assets': {
+    'root': '/resources',
+    'raptorImage': 'raptor.png',
+    'raptorSoundMp3': "raptor-sound.mp3",
+    'raptorSoundOgg': "raptor-sound.ogg"
+  }
+});
+```
+
 ## Changelog
 
 - Support jQuery versions: 1.7+, 2.x and 3.x (regular, but not slim).
 - Fix minor bug where audio would get out of sync when raptor is triggered repeatedly.
 - Allow konami-code to be used more than once.
-- Optimize konami-code logic to track and compare only the last 10 keystrokes 
+- Support overriding default asset locations. 
+- Optimize konami-code logic to track and compare only the last 10 keystrokes. 
 - Simplify animate logic to avoid multiple nested callbacks.
 - Remove deprecated browser check for audio support. It made sense in 2010, but in 2021 over 98% of modern browsers support audio tags ([source](https://caniuse.com/?search=audio)).
 
 ## FAQ
 
-### Where does the plugin expect to find the image and sound files?
+### Where does the plugin look for the image and sound files?
 
-The default location is `/images/raptor.png`, `/sounds/raptor-sound.mp3` and `/sounds/raptor-sound.ogg`.  
-
-### How to specify a custom path for image and sound files? 
-
-Edit your `jquery.raptorize.2.0.js` script and update variables `raptorImageSrcPath`, `raptorSoundMp3SrcPath` and `raptorSoundOggSrcPath`.
+The default location is `/images/raptor.png`, `/sounds/raptor-sound.mp3` and `/sounds/raptor-sound.ogg`. However, if your project needs to store these files elsewhere, then the paths can be overridden though the `assets` option.   
 
 ### What is the difference between jQuery 3.x regular and slim?
 
