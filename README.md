@@ -74,6 +74,10 @@ $('body').raptorize({
 
 ## FAQ
 
+### What is the Konami Code?
+
+It's the following keys pressed in sequence: ↑ ↑ ↓ ↓ ← → ← → B A. For more info, see: [Wiki Page](https://en.wikipedia.org/wiki/Konami_Code).
+
 ### Where does the plugin look for the image and sound files?
 
 The default location is `/images/raptor.png`, `/sounds/raptor-sound.mp3` and `/sounds/raptor-sound.ogg`. However, if your project needs to store these files elsewhere, then the paths can be overridden though the `assets` option.   
