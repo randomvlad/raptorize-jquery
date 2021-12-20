@@ -15,18 +15,47 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#open-cage-button').raptorize({
+
+        $('#open-cage-click').raptorize({
+          enterOn: 'click',
           assets: {
             root: 'assets'
           }
         });
+
+        $('#open-cage-timer').raptorize({
+          enterOn: 'timer',
+          delayTime: 5000,
+          assets: {
+            root: 'assets'
+          }
+        });
+
+        $('#open-cage-code').raptorize({
+          enterOn: 'konami-code',
+          assets: {
+            root: 'assets'
+          }
+        });
+
       });
     </script>
   </head>
 
   <body>
-    <h1>Raptorize Plugin 2.0 Example</h1>
-    <button id="open-cage-button">Unleash Raptor</button>
+    <h1>Raptorize Plugin 2.0 Examples</h1>
+
+    The raptor can be triggered in three different ways.
+
+    <h2>Click</h2>
+    Attach to any element and trigger on click: <button id="open-cage-click">Unleash Raptor</button>
+
+    <h2>Timer</h2>
+    <div id="open-cage-timer">Add a timer with a delay. For instance, wait 5 seconds after page load.</div>
+
+    <h2>Konami Code</h2>
+    <div id="open-cage-code">Press the following keys in sequence: ↑ ↑ ↓ ↓ ← → ← → B A</div>
+
   </body>
 
 </html>
