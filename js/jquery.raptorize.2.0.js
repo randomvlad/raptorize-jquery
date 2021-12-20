@@ -9,31 +9,39 @@
 
 (function ($) {
 
-  $.fn.raptorize = function (options) {
+  $.fn.raptorize = function (raptorOptions) {
 
     var defaults = {
       enterOn: 'click', // possible values: timer, konami-code, click
-      delayTime: 5000 // time before raptor attacks on timer mode
+      delayTime: 5000, // delay duration before raptor attacks in timer mode
+      assets: {
+        root: '/',
+        raptorImage: 'images/raptor.png',
+        raptorSoundMp3: 'sounds/raptor-sound.mp3',
+        raptorSoundOgg: 'sounds/raptor-sound.ogg'
+      }
     };
-    var options = $.extend(defaults, options);
 
-    // Raptor image and sound files. Update src path as needed
-    var raptorImageSrcPath = '/images/raptor.png';
-    var raptorSoundMp3SrcPath = '/sounds/raptor-sound.mp3';
-    var raptorSoundOggSrcPath = '/sounds/raptor-sound.ogg';
+    // merge user provided options with default values
+    var options = $.extend(true,{}, defaults, raptorOptions);
 
-    var elRaptorImg = $('<img id="elRaptor" src="' + raptorImageSrcPath + '" />')
-      .css({
-        "position": "fixed",
-        "display": "block",
-        "bottom": "-700px",
-        "right": "0"
-      });
+    var assets = options.assets;
+    if (!assets.root.endsWith('/')) {
+      assets.root = assets.root + '/';
+    }
+
+    var elRaptorImg = $('<img id="elRaptor" src="' + assets.root + assets.raptorImage + '" />')
+    .css({
+      "position": "fixed",
+      "display": "block",
+      "bottom": "-700px",
+      "right": "0"
+    });
 
     var elRaptorAudio = $('<audio id="elRaptorShriek" preload="auto">'
-      + '<source src="' + raptorSoundMp3SrcPath + '" />'
-      + '<source src="' + raptorSoundOggSrcPath + '" />'
-      + '</audio>');
+        + '<source src="' + assets.root + assets.raptorSoundMp3 + '" />'
+        + '<source src="' + assets.root + assets.raptorSoundOgg + '" />'
+        + '</audio>');
 
     $('body').append(elRaptorImg, elRaptorAudio);
 
@@ -48,17 +56,17 @@
         elRaptorAudio.get(0).play();
 
         elRaptorImg
-          .animate({"bottom": "0px"}, 400) // pop out at "full height"
-          .animate({"bottom": "-120px"}, 100) // lower so only head is visible
-          .delay(400) // dramatic pause
-          .animate( // move left
+        .animate({"bottom": "0px"}, 400) // pop out at "full height"
+        .animate({"bottom": "-120px"}, 100) // lower so only head is visible
+        .delay(400) // dramatic pause
+        .animate( // move left
             {"right": elRaptorImg.position().left + 400},
-              2200,
-              function() {
-                elRaptorImg.css({"bottom": "-700px", "right": "0"});
-                locked = false;
-              }
-          );
+            2200,
+            function() {
+              elRaptorImg.css({"bottom": "-700px", "right": "0"});
+              locked = false;
+            }
+        );
       }
 
       if (options.enterOn === 'timer') {

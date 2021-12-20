@@ -14,11 +14,13 @@
     <script src="assets/js/jquery.raptorize.2.0.js"></script>
 
     <script type="text/javascript">
-
       $(document).ready(function() {
-        $('#open-cage-button').raptorize();
+        $('#open-cage-button').raptorize({
+          assets: {
+            root: 'assets'
+          }
+        });
       });
-
     </script>
   </head>
 
