@@ -56,8 +56,8 @@ $('body').raptorize({
   'assets': {
     'root': '/resources',
     'raptorImage': 'raptor.png',
-    'raptorSoundMp3': "raptor-sound.mp3",
-    'raptorSoundOgg': "raptor-sound.ogg"
+    'raptorSoundMp3': 'raptor-sound.mp3',
+    'raptorSoundOgg': 'raptor-sound.ogg'
   }
 });
 ```
