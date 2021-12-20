@@ -23,7 +23,7 @@
     };
 
     // merge user provided options with default values
-    var options = $.extend(true,{}, defaults, raptorOptions);
+    var options = $.extend(true, {}, defaults, raptorOptions);
 
     var assets = options.assets;
     if (!assets.root.endsWith('/')) {
