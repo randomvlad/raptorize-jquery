@@ -15,7 +15,7 @@
       enterOn: 'click', // possible values: timer, konami-code, click
       delayTime: 5000, // delay duration before raptor attacks in timer mode
       assets: {
-        root: '/',
+        pathPrefix: '',
         raptorImage: 'images/raptor.png',
         raptorSoundMp3: 'sounds/raptor-sound.mp3',
         raptorSoundOgg: 'sounds/raptor-sound.ogg'
@@ -26,22 +26,22 @@
     var options = $.extend(true, {}, defaults, raptorOptions);
 
     var assets = options.assets;
-    if (!assets.root.endsWith('/')) {
-      assets.root = assets.root + '/';
+    if (assets.pathPrefix !== '' && !assets.pathPrefix.endsWith('/')) {
+      assets.pathPrefix = assets.pathPrefix + '/';
     }
 
-    var elRaptorImg = $('<img id="elRaptor" src="' + assets.root + assets.raptorImage + '" />')
-      .css({
-        "position": "fixed",
-        "display": "block",
-        "bottom": "-700px",
-        "right": "0"
-      });
+    var elRaptorImg = $('<img id="elRaptor" src="' + assets.pathPrefix + assets.raptorImage + '" />')
+    .css({
+      "position": "fixed",
+      "display": "block",
+      "bottom": "-700px",
+      "right": "0"
+    });
 
     var elRaptorAudio = $('<audio id="elRaptorShriek" preload="auto">'
-      + '<source src="' + assets.root + assets.raptorSoundMp3 + '" />'
-      + '<source src="' + assets.root + assets.raptorSoundOgg + '" />'
-      + '</audio>');
+        + '<source src="' + assets.pathPrefix + assets.raptorSoundMp3 + '" />'
+        + '<source src="' + assets.pathPrefix + assets.raptorSoundOgg + '" />'
+        + '</audio>');
 
     $('body').append(elRaptorImg, elRaptorAudio);
 
@@ -56,17 +56,17 @@
         elRaptorAudio.get(0).play();
 
         elRaptorImg
-          .animate({"bottom": "0px"}, 400) // pop out at "full height"
-          .animate({"bottom": "-120px"}, 100) // lower so only head is visible
-          .delay(400) // dramatic pause
-          .animate( // move left
+        .animate({"bottom": "0px"}, 400) // pop out at "full height"
+        .animate({"bottom": "-120px"}, 100) // lower so only head is visible
+        .delay(400) // dramatic pause
+        .animate( // move left
             {"right": elRaptorImg.position().left + 400},
-              2200,
-              function() {
-                elRaptorImg.css({"bottom": "-700px", "right": "0"});
-                locked = false;
-              }
-          );
+            2200,
+            function() {
+              elRaptorImg.css({"bottom": "-700px", "right": "0"});
+              locked = false;
+            }
+        );
       }
 
       if (options.enterOn === 'timer') {

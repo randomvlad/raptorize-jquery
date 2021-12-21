@@ -34,7 +34,7 @@ Plugin's `raptorize()` method supports an `options` parameter to customize thing
 |---|---|---|
 | `enterOn` | click | Possible values: `click`, `timer`, `konami-code` |
 | `delayTime` | 5000 | Delay duration in milliseconds before raptor is triggered. Only applicable for `timer` mode. |
-| `assets.root` | / | Path to assets root folder with raptor files |
+| `assets.pathPrefix` | Empty String| Path prefix for raptor asset files. Default empty value implies a relative path based on html page running the plugin. Override value based on your project setup. |
 | `assets.raptorImage` | images/raptor.png | |
 | `assets.raptorSoundMp3` | sounds/raptor-sound.mp3 |  |
 | `assets.raptorSoundOgg` | sounds/raptor-sound.ogg |  |
@@ -50,11 +50,11 @@ $('body').raptorize({
 ```
 
 ```javascript
-// override assets if your project stores the files in a non-default location 
+// override asset locations as needed per project needs 
 $('body').raptorize({
   'enterOn': 'konami-code',  
   'assets': {
-    'root': '/resources',
+    'pathPrefix': '/resources',
     'raptorImage': 'raptor.png',
     'raptorSoundMp3': 'raptor-sound.mp3',
     'raptorSoundOgg': 'raptor-sound.ogg'
@@ -80,7 +80,7 @@ It's the following keys pressed in sequence: ↑ ↑ ↓ ↓ ← → ← → B A
 
 ### Where does the plugin look for the image and sound files?
 
-The default location is `/images/raptor.png`, `/sounds/raptor-sound.mp3` and `/sounds/raptor-sound.ogg`. However, if your project needs to store these files elsewhere, then the paths can be overridden though the `assets` option.   
+The default location is __relative__ to the html page executing the plugin. Namely `images/raptor.png`, `sounds/raptor-sound.mp3` and `sounds/raptor-sound.ogg`. However, if your project needs to store these files elsewhere, then the paths can be overridden though the `assets` option. For example, setting `assets.pathPrefix = '/'` would use an __absolute__ path of `/images/raptor.png` and so forth.         
 
 ### What is the difference between jQuery 3.x regular and slim?
 

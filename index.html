@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>Raptorize Plugin 2.0 Examples</title>
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon-raptor-claw.png">
+    <title>Raptorize Kit 2.0 Examples</title>
 
     <script
           src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -11,31 +10,22 @@
           crossorigin="anonymous">
     </script>
 
-    <script src="assets/js/jquery.raptorize.2.0.js"></script>
+    <script src="js/jquery.raptorize.2.0.js"></script>
 
     <script type="text/javascript">
       $(document).ready(function() {
 
         $('#open-cage-click').raptorize({
-          enterOn: 'click',
-          assets: {
-            pathPrefix: 'assets'
-          }
+          enterOn: 'click'
         });
 
         $('#open-cage-timer').raptorize({
           enterOn: 'timer',
-          delayTime: 5000,
-          assets: {
-            pathPrefix: 'assets'
-          }
+          delayTime: 5000
         });
 
         $('#open-cage-code').raptorize({
-          enterOn: 'konami-code',
-          assets: {
-            pathPrefix: 'assets'
-          }
+          enterOn: 'konami-code'
         });
 
       });
@@ -43,7 +33,7 @@
   </head>
 
   <body>
-    <h1>Raptorize Plugin 2.0 Examples</h1>
+    <h1>Raptorize Kit 2.0 Examples</h1>
 
     The raptor can be triggered in three different ways.
 

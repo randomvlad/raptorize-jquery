@@ -15,7 +15,7 @@
       enterOn: 'click', // possible values: timer, konami-code, click
       delayTime: 5000, // delay duration before raptor attacks in timer mode
       assets: {
-        root: '/',
+        pathPrefix: '',
         raptorImage: 'images/raptor.png',
         raptorSoundMp3: 'sounds/raptor-sound.mp3',
         raptorSoundOgg: 'sounds/raptor-sound.ogg'
@@ -26,11 +26,11 @@
     var options = $.extend(true, {}, defaults, raptorOptions);
 
     var assets = options.assets;
-    if (!assets.root.endsWith('/')) {
-      assets.root = assets.root + '/';
+    if (assets.pathPrefix !== '' && !assets.pathPrefix.endsWith('/')) {
+      assets.pathPrefix = assets.pathPrefix + '/';
     }
 
-    var elRaptorImg = $('<img id="elRaptor" src="' + assets.root + assets.raptorImage + '" />')
+    var elRaptorImg = $('<img id="elRaptor" src="' + assets.pathPrefix + assets.raptorImage + '" />')
     .css({
       "position": "fixed",
       "display": "block",
@@ -39,8 +39,8 @@
     });
 
     var elRaptorAudio = $('<audio id="elRaptorShriek" preload="auto">'
-        + '<source src="' + assets.root + assets.raptorSoundMp3 + '" />'
-        + '<source src="' + assets.root + assets.raptorSoundOgg + '" />'
+        + '<source src="' + assets.pathPrefix + assets.raptorSoundMp3 + '" />'
+        + '<source src="' + assets.pathPrefix + assets.raptorSoundOgg + '" />'
         + '</audio>');
 
     $('body').append(elRaptorImg, elRaptorAudio);
