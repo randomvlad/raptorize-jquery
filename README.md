@@ -7,16 +7,17 @@ Want to see the clever girl in action? [Check her out here](https://randomvlad.g
 ## Installation
 
 Steps:
-* Copy resource files to your project: [/images/raptor.png](/images/raptor.png), [/sounds/raptor-sound.mp3](/sounds/raptor-sound.mp3) and [/sounds/raptor-sound.ogg](/sounds/raptor-sound.ogg).
-* Copy jQuery plugin: [/js/jquery.raptorize.2.0.js](/js/jquery.raptorize.2.0.js).
+* Download [raptorize-kit-2.0.zip](https://github.com/randomvlad/raptorize-jquery/releases/download/v2.0/raptorize-kit-2.0.zip). It contains image & sounds assets, jQuery plugin and an example html file. 
+* Copy assets and jQuery plugin to your project.
 * Include plugin in your html page and raptorize an element of your choice.
 
-Code Sample:
+Example:
 
 ```html
-<!-- Plugin requires jQuery version 1.7+ -->
+<!-- Make sure your html page has jQuery itself -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- Plugin works with jQuery versions: 1.7+, 2.x and 3.x -->
 <script src="/js/jquery.raptorize.2.0.js"></script>
 
 <script type="text/javascript">
@@ -28,9 +29,9 @@ Code Sample:
 
 ## Options
 
-Plugin's `raptorize()` method supports an `options` parameter to customize things.
+Plugin's `raptorize()` method takes an `options` parameter.
 
-| Parameter | Default Value | Notes |
+| Attribute | Default Value | Notes |
 |---|---|---|
 | `enterOn` | click | Possible values: `click`, `timer`, `konami-code` |
 | `delayTime` | 5000 | Delay duration in milliseconds before raptor is triggered. Only applicable for `timer` mode. |
@@ -67,7 +68,7 @@ $('body').raptorize({
 - Support jQuery versions: 1.7+, 2.x and 3.x (regular, but not slim).
 - Fix minor bug where audio would get out of sync when raptor is triggered repeatedly.
 - Allow konami-code to be used more than once.
-- Support overriding default asset locations. 
+- Easily override default asset locations.
 - Optimize konami-code logic to track and compare only the last 10 keystrokes. 
 - Simplify animate logic to avoid multiple nested callbacks.
 - Remove deprecated browser check for audio support. It made sense in 2010, but in 2021 over 98% of modern browsers support audio tags ([source](https://caniuse.com/?search=audio)).
