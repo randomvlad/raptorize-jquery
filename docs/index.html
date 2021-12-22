@@ -23,14 +23,6 @@
           }
         });
 
-        $('#open-cage-timer').raptorize({
-          enterOn: 'timer',
-          delayTime: 5000,
-          assets: {
-            pathPrefix: 'assets'
-          }
-        });
-
         $('#open-cage-code').raptorize({
           enterOn: 'konami-code',
           assets: {
@@ -38,6 +30,15 @@
           }
         });
 
+        if (window.location.href.indexOf('startTimerOnPageLoad=true') !== -1) {
+          $('body').raptorize({
+            enterOn: 'timer',
+            delayTime: 3000,
+            assets: {
+              pathPrefix: 'assets'
+            }
+          });
+        }
       });
     </script>
   </head>
@@ -50,10 +51,14 @@
     <h2>Click</h2>
     Attach to any element and trigger on click: <button id="open-cage-click">Unleash Raptor</button>
 
-    <h2>Timer</h2>
-    <div id="open-cage-timer">Add a timer with a delay. For instance, wait 5 seconds after page load.</div>
-
     <h2>Konami Code</h2>
     <div id="open-cage-code">Press the following keys in sequence: ↑ ↑ ↓ ↓ ← → ← → B A</div>
+
+    <h2>Timer</h2>
+    Add a timer with a delay:
+    <form name="timerForm" method="GET" action="" style="display: inline;">
+      <input type="hidden" name="startTimerOnPageLoad" value="true" />
+      <button type="submit">Reload Page With Timer (3 sec)</button>
+    </form>
   </body>
 </html>

@@ -19,14 +19,16 @@
           enterOn: 'click'
         });
 
-        $('#open-cage-timer').raptorize({
-          enterOn: 'timer',
-          delayTime: 5000
-        });
-
         $('#open-cage-code').raptorize({
           enterOn: 'konami-code'
         });
+
+        if (window.location.href.indexOf('startTimerOnPageLoad=true') !== -1) {
+          $('body').raptorize({
+            enterOn: 'timer',
+            delayTime: 3000
+          });
+        }
 
       });
     </script>
@@ -45,5 +47,12 @@
 
     <h2>Konami Code</h2>
     <div id="open-cage-code">Press the following keys in sequence: ↑ ↑ ↓ ↓ ← → ← → B A</div>
+
+    <h2>Timer</h2>
+    Add a timer with a delay:
+    <form name="timerForm" method="GET" action="" style="display: inline;">
+      <input type="hidden" name="startTimerOnPageLoad" value="true" />
+      <button type="submit">Reload Page With Timer (3 sec)</button>
+    </form>
   </body>
 </html>
