@@ -1,8 +1,8 @@
 # Raptorize jQuery Plugin
 
-This is an homage to the classic Raptorize plugin: [https://zurb.com/playground/jquery-raptorize](https://zurb.com/playground/jquery-raptorize). It was built back in 2010 with jQuery 1.4 and is overdue for an update to support later jQuery versions. For a complete list of improvements, see changelog below.
+This is an homage to the classic Raptorize plugin ([https://zurb.com/playground/jquery-raptorize](https://zurb.com/playground/jquery-raptorize)), which was built in 2010 with jQuery 1.4. It is due for a much-needed update to support newer jQuery versions. For a complete list of improvements, see changelog below.
 
-Want to see the plugin in action? [Check it out here](https://randomvlad.github.io/raptorize-jquery).
+Want to see the clever girl in action? [Check her out here](https://randomvlad.github.io/raptorize-jquery).
 
 ## Installation
 
@@ -85,6 +85,10 @@ The default location is __relative__ to the html page executing the plugin. Name
 ### What is the difference between jQuery 3.x regular and slim?
 
 Raptorize plugin works only with regular version of jQuery 3.x. Slim version is not supported because it excludes the animation effects module. For more info, see: [SO post](https://stackoverflow.com/questions/35424053/what-are-the-differences-between-normal-and-slim-package-of-jquery).  
+
+### Why does the sound not always play in timer mode?
+
+Many browsers block autoplay media when the page is initially loaded. For more info, see: [Chrome Autoplay](https://developer.chrome.com/blog/autoplay/) and [Firefox Autoplay](https://support.mozilla.org/en-US/kb/block-autoplay).  
 
 ### Is there a native browser version that does not depend on jQuery?
 
