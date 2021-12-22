@@ -31,12 +31,12 @@
     }
 
     var elRaptorImg = $('<img id="elRaptor" src="' + assets.pathPrefix + assets.raptorImage + '" />')
-    .css({
-      "position": "fixed",
-      "display": "block",
-      "bottom": "-700px",
-      "right": "0"
-    });
+      .css({
+        "position": "fixed",
+        "display": "block",
+        "bottom": "-700px",
+        "right": "0"
+      });
 
     var elRaptorAudio = $('<audio id="elRaptorShriek" preload="auto">'
         + '<source src="' + assets.pathPrefix + assets.raptorSoundMp3 + '" />'
@@ -56,17 +56,17 @@
         elRaptorAudio.get(0).play();
 
         elRaptorImg
-        .animate({"bottom": "0px"}, 400) // pop out at "full height"
-        .animate({"bottom": "-120px"}, 100) // lower so only head is visible
-        .delay(400) // dramatic pause
-        .animate( // move left
-            {"right": elRaptorImg.position().left + 400},
-            2200,
-            function() {
-              elRaptorImg.css({"bottom": "-700px", "right": "0"});
-              locked = false;
-            }
-        );
+          .animate({"bottom": "0px"}, 400) // pop out at "full height"
+          .animate({"bottom": "-120px"}, 100) // lower so only head is visible
+          .delay(400) // dramatic pause
+          .animate( // move left
+              {"right": elRaptorImg.position().left + 400},
+              2200,
+              function () {
+                elRaptorImg.css({"bottom": "-700px", "right": "0"});
+                locked = false;
+              }
+          );
       }
 
       if (options.enterOn === 'timer') {
